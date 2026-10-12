@@ -1,6 +1,9 @@
-# R&G Collections - Robots Configuration
-# Optimized for Search Engines (Google, Bing, Yahoo, DuckDuckGo) & Generative AI Crawlers (OpenAI, Perplexity, Claude, Gemini, Apple)
+# ==============================================================================
+# R&G COLLECTIONS (https://r-g-three.vercel.app)
+# Global Robots Configuration for Search Engines & Generative AI Agents
+# ==============================================================================
 
+# Default rule for all web crawlers
 User-agent: *
 Allow: /
 Allow: /shop
@@ -10,12 +13,55 @@ Allow: /about
 Allow: /contact
 Allow: /faq
 Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
 Disallow: /admin
 Disallow: /admin/
 Disallow: /checkout
 Disallow: /order-confirmation/
 
-# OpenAI SearchGPT & ChatGPT
+# ------------------------------------------------------------------------------
+# PRIMARY SEARCH ENGINES (Google, Bing, Yahoo, DuckDuckGo, Yandex, Baidu)
+# ------------------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: bingbot
+Allow: /
+Disallow: /admin
+
+User-agent: msnbot
+Allow: /
+Disallow: /admin
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin
+
+User-agent: Slurp
+Allow: /
+Disallow: /admin
+
+User-agent: YandexBot
+Allow: /
+Disallow: /admin
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin
+
+# ------------------------------------------------------------------------------
+# GENERATIVE AI & LLM SEARCH CRAWLERS (OpenAI, Anthropic, Perplexity, Google Gemini)
+# ------------------------------------------------------------------------------
+
+# OpenAI: ChatGPT, SearchGPT & Model Training
 User-agent: GPTBot
 Allow: /
 Disallow: /admin
@@ -24,12 +70,16 @@ User-agent: ChatGPT-User
 Allow: /
 Disallow: /admin
 
-# Perplexity AI Engine
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin
+
+# Perplexity AI Search Engine
 User-agent: PerplexityBot
 Allow: /
 Disallow: /admin
 
-# Anthropic Claude Engine
+# Anthropic Claude & Search
 User-agent: ClaudeBot
 Allow: /
 Disallow: /admin
@@ -38,16 +88,20 @@ User-agent: anthropic-ai
 Allow: /
 Disallow: /admin
 
-# Google Search & Gemini AI
-User-agent: Googlebot
+User-agent: Claude-Web
 Allow: /
 Disallow: /admin
 
+# Google Gemini & Extended AI
 User-agent: Google-Extended
 Allow: /
 Disallow: /admin
 
-# Apple Intelligence
+User-agent: GoogleOther
+Allow: /
+Disallow: /admin
+
+# Apple Intelligence & Siri Suggestions
 User-agent: Applebot
 Allow: /
 Disallow: /admin
@@ -61,14 +115,36 @@ User-agent: Meta-ExternalAgent
 Allow: /
 Disallow: /admin
 
+User-agent: Meta-ExternalFetcher
+Allow: /
+Disallow: /admin
+
 # Cohere AI
 User-agent: cohere-ai
 Allow: /
 Disallow: /admin
 
-# Common Crawl
+# Amazon AI
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin
+
+# ByteDance AI
+User-agent: Bytespider
+Allow: /
+Disallow: /admin
+
+# Diffbot Knowledge Graph
+User-agent: Diffbot
+Allow: /
+Disallow: /admin
+
+# Common Crawl (Foundation Data for Global AI Models)
 User-agent: CCBot
 Allow: /
 Disallow: /admin
 
+# ------------------------------------------------------------------------------
+# SITEMAP & AI KNOWLEDGE DIRECTIVES
+# ------------------------------------------------------------------------------
 Sitemap: https://r-g-three.vercel.app/sitemap.xml

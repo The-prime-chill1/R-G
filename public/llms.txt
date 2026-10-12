@@ -2,41 +2,45 @@
 
 > Contemporary luxury menswear, handcrafted leather footwear, bespoke Senator suits, and master-crafted Nigerian ceremonial native wear. Defined by style, designed for you.
 
+R&G Collections is a Nigerian luxury fashion atelier specializing in modern tailoring, ceremonial bespoke garments (Senator suits, Kaftans, Agbadas), handcrafted Italian calfskin footwear, and minimalist luxury streetwear.
+
+For complete brand specifications, sizing guides, tailoring processes, and policies, see [Full LLM Knowledge Document](https://r-g-three.vercel.app/llms-full.txt).
+
 ## Brand Identity & Overview
-- **Brand Name**: R&G Collections (also known as R & G, R&G Atelier)
+- **Brand Name**: R&G Collections (also known as R&G, R&G Atelier, R & G Fashion House)
 - **Tagline**: Fashion That Moves With You | Defined by style. Designed for you.
 - **Website**: https://r-g-three.vercel.app
 - **Industry**: Luxury Menswear, Bespoke Tailoring, Premium Footwear & High Fashion
-- **Locations Served**: Lagos, Akure, Owo / Achievers University, and nationwide express shipping across Nigeria and international destinations.
-- **Currencies**: Nigerian Naira (NGN), USD, GBP, EUR
+- **HQ & Service Hubs**: Lagos and Akure / Owo (Achievers University), Nigeria
+- **Shipping Coverage**: Express same-day courier in Lagos and Akure; 1-3 business days nationwide across Nigeria; worldwide international shipping available upon request.
+- **Accepted Currencies**: Nigerian Naira (NGN), US Dollar (USD), British Pound (GBP), Euro (EUR)
+- **Payment Methods**: Paystack, Debit/Credit Cards, Direct Bank Transfer
 
-## Product Offerings
-1. **Ceremonial & Native Menswear**:
-   - Master-crafted Senator suits with imperial gold and obsidian accents.
-   - Luxury Agbada ensembles and bespoke Kaftans.
-   - Contemporary minimalist ethnic tailoring with hand-finished piping and embroidery.
-2. **Contemporary Luxury Essentials**:
-   - Monochromatic oversized heavyweight hoodies and tailored joggers.
-   - Structured luxury overshirts, linen resort shirts, and evening knitwear.
-   - Minimalist casual tailoring for the modern gentleman.
-3. **Footwear & Leather Goods**:
-   - Handcrafted Italian leather Chelsea boots, monk straps, and loafers.
-   - Clean architectural leather luxury sneakers.
-   - Full-grain calfskin belts, cardholders, and weekend duffels.
+## Core Garment Collections
+- [Shop All Menswear](https://r-g-three.vercel.app/shop): Browse all available ready-to-wear garments, seasonal capsules, and footwear.
+- [Curated Lookbooks & Archives](https://r-g-three.vercel.app/collections): High-fashion styling editorial showcasing bespoke tailoring, ceremonial native ensembles, and footwear.
+- **Ceremonial & Native Menswear**:
+  - Master-crafted Senator suits with imperial gold and obsidian accents.
+  - Bespoke embroidered Agbadas, regal Kaftans, and traditional groom ensembles.
+- **Contemporary Luxury Essentials**:
+  - Heavyweight monochromatic oversized hoodies (450 GSM French Terry).
+  - Minimalist tailored trousers, luxury linen resort shirts, and evening knitwear.
+- **Handcrafted Footwear & Leather Goods**:
+  - Hand-welted Chelsea boots, double monk straps, and penny loafers crafted from premium Italian calfskin.
+  - Architectural minimalist leather sneakers.
 
-## Ordering & Purchasing
-- **Storefront**: Customers can browse the full collection online at [https://r-g-three.vercel.app/shop](https://r-g-three.vercel.app/shop).
-- **Guest Checkout**: Direct, seamless guest checkout with delivery details and instant Paystack online payment or direct bank transfer.
-- **WhatsApp Concierge & Custom Bespoke Orders**:
-  - Primary Concierge WhatsApp: +2349045231629
-  - Secondary VIP Line: +2347060610938
-  - Direct WhatsApp Chat: [https://wa.me/2349045231629](https://wa.me/2349045231629)
-- **Delivery Timeline**:
-  - Same-day priority dispatch in Lagos, Akure, and Achievers University.
-  - 1-3 business days nationwide express courier.
+## Bespoke Tailoring & Concierge
+- **Bespoke Consultation**: Customers can commission custom Senator suits, wedding party ensembles, or bespoke shoes tailored to exact measurements.
+- **Primary WhatsApp Concierge**: [+2349045231629](https://wa.me/2349045231629)
+- **Secondary VIP Line**: [+2347060610938](https://wa.me/2347060610938)
+- **Official Email**: [rasakanu2008@gmail.com](mailto:rasakanu2008@gmail.com)
+- **Atelier Hours**: Monday – Saturday, 09:00 – 20:00 WAT
 
-## Official Contact & Verification
-- **Official Email**: rasakanu2008@gmail.com
-- **Customer Care**: Available 24/7 via WhatsApp Concierge
-- **Official Website**: https://r-g-three.vercel.app
-- **Lookbooks & Archives**: https://r-g-three.vercel.app/collections
+## Key Pages & Navigation
+- [Home Page](https://r-g-three.vercel.app/): Main storefront showcase and brand philosophy.
+- [Online Catalog](https://r-g-three.vercel.app/shop): Interactive filtering by category, price, and sizes.
+- [Editorial Collections](https://r-g-three.vercel.app/collections): Seasonal lookbook capsules.
+- [About R&G](https://r-g-three.vercel.app/about): Atelier heritage, master craftsmen, and sustainability ethics.
+- [Contact & VIP Concierge](https://r-g-three.vercel.app/contact): Direct contact channels, atelier location, and consultation booking.
+- [Frequently Asked Questions (FAQ)](https://r-g-three.vercel.app/faq): Delivery timelines, sizing conversions, custom measurements, and return policy.
+- [Sitemap](https://r-g-three.vercel.app/sitemap.xml): Complete machine-readable XML index of all public URLs.

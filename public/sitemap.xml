@@ -10,15 +10,17 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://r-g-three.vercel.app/hero-boutique.jpg</image:loc>
-      <image:title>R&amp;G Collections Luxury Boutique</image:title>
+      <image:title>R&amp;G Collections Luxury Boutique Showroom</image:title>
+      <image:caption>Contemporary luxury menswear atelier showroom in Nigeria</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://r-g-three.vercel.app/hero-outfit.jpg</image:loc>
       <image:title>R&amp;G Collections Signature Capsule Flat-Lay</image:title>
+      <image:caption>Master-crafted ceremonial native wear and handcrafted footwear</image:caption>
     </image:image>
   </url>
 
-  <!-- Shop & Catalog -->
+  <!-- Shop & Online Catalog -->
   <url>
     <loc>https://r-g-three.vercel.app/shop</loc>
     <lastmod>2026-10-12</lastmod>
@@ -26,7 +28,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Wardrobe Lookbooks & Collections -->
+  <!-- Wardrobe Lookbooks & Curated Collections -->
   <url>
     <loc>https://r-g-three.vercel.app/collections</loc>
     <lastmod>2026-10-12</lastmod>
@@ -34,7 +36,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- About Atelier -->
+  <!-- About Atelier Heritage & Master Tailoring -->
   <url>
     <loc>https://r-g-three.vercel.app/about</loc>
     <lastmod>2026-10-12</lastmod>
@@ -42,7 +44,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Contact & WhatsApp Concierge -->
+  <!-- Contact & WhatsApp VIP Concierge -->
   <url>
     <loc>https://r-g-three.vercel.app/contact</loc>
     <lastmod>2026-10-12</lastmod>
@@ -50,7 +52,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- FAQ & Ordering Guidelines -->
+  <!-- Frequently Asked Questions (FAQ) -->
   <url>
     <loc>https://r-g-three.vercel.app/faq</loc>
     <lastmod>2026-10-12</lastmod>

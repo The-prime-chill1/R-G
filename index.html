@@ -15,15 +15,19 @@
   <meta name="theme-color" content="#09090b" />
   <meta name="format-detection" content="telephone=no" />
 
-  <!-- Canonical URL & Indexation Directives -->
+  <!-- Canonical URL & Indexation Directives for All Search Engines -->
   <link rel="canonical" href="https://r-g-three.vercel.app/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="slurp" content="index, follow" />
+  <meta name="duckduckbot" content="index, follow" />
 
-  <!-- AI Engine Knowledge Endpoints -->
+  <!-- AI Engine Knowledge Endpoints & Web Manifest -->
+  <link rel="manifest" href="/site.webmanifest" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link rel="author" type="text/plain" href="/llms.txt" />
+  <link rel="alternate" type="text/plain" title="Full LLM Knowledge Dossier" href="/llms-full.txt" />
 
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp Rich Previews -->
   <meta property="og:type" content="website" />
@@ -38,6 +42,8 @@
   <meta property="og:image:height" content="675" />
   <meta property="og:image:alt" content="R&amp;G Collections Atelier Showroom &amp; Menswear" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="en_NG" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -58,7 +64,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- JSON-LD Structured Data Schema for Google & Generative AI Crawlers -->
+  <!-- Comprehensive JSON-LD Structured Data Schema for Google, Bing & Generative AI Crawlers -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -127,13 +133,115 @@
           },
           "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://r-g-three.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What clothing categories does R&G Collections offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "R&G Collections specializes in master-crafted Nigerian ceremonial native wear (Senator suits, Kaftans, and Agbadas), handcrafted Italian calfskin footwear (Chelsea boots, monk straps, loafers), and minimalist luxury streetwear."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I order custom bespoke Senator suits or native wear from R&G?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Clients can place orders directly on the website or connect with our master tailors via WhatsApp Concierge (+2349045231629) for personalized fabric selection and custom measurement fittings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are R&G Collections delivery timelines across Nigeria?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We provide same-day express delivery in Lagos and Akure / Achievers University, and 1 to 3 business days nationwide express shipping across Nigeria."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment methods are supported on R&G Collections?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We accept secure online debit and credit cards powered by Paystack, as well as direct verified bank transfers."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://r-g-three.vercel.app/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://r-g-three.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Shop Catalog",
+            "item": "https://r-g-three.vercel.app/shop"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Lookbooks & Collections",
+            "item": "https://r-g-three.vercel.app/collections"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Atelier Heritage",
+            "item": "https://r-g-three.vercel.app/about"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "VIP Concierge Contact",
+            "item": "https://r-g-three.vercel.app/contact"
+          }
+        ]
       }
     ]
   }
   </script>
 </head>
 <body>
-  <div id="root"></div>
+  <!-- Semantic Crawlable Fallback for Search Engines and AI Crawlers (replaced by React upon hydration) -->
+  <div id="root">
+    <header style="padding: 20px; background: #09090b; color: #f4f4f5; font-family: sans-serif;">
+      <h1>R&amp;G Collections — Modern Luxury Menswear &amp; Bespoke Sartorial Fashion</h1>
+      <p>Defined by style. Designed for you. Contemporary luxury tailoring, ceremonial native wear, and handcrafted Italian footwear in Lagos, Akure, and nationwide.</p>
+      <nav>
+        <a href="/shop" style="color: #cfa135; margin-right: 15px;">Shop Collection</a>
+        <a href="/collections" style="color: #cfa135; margin-right: 15px;">Lookbooks &amp; Archives</a>
+        <a href="/about" style="color: #cfa135; margin-right: 15px;">Atelier Heritage</a>
+        <a href="/contact" style="color: #cfa135; margin-right: 15px;">VIP Concierge</a>
+        <a href="/faq" style="color: #cfa135;">Frequently Asked Questions</a>
+      </nav>
+    </header>
+    <main style="padding: 20px; color: #a1a1aa; font-family: sans-serif;">
+      <h2>Master-Crafted Sartorial Menswear &amp; Bespoke Native Wear</h2>
+      <p>Discover master-tailored Senator suits, bespoke Agbadas, luxury Kaftans, hand-welted Chelsea boots, and premium heavy-gauge monochromatic knitwear.</p>
+      <p><strong>Express Delivery:</strong> Same-day dispatch in Lagos and Akure / Achievers University. 1-3 business days nationwide across Nigeria.</p>
+      <p><strong>WhatsApp VIP Concierge:</strong> +2349045231629 | +2347060610938</p>
+    </main>
+  </div>
+
+  <noscript>
+    <div style="padding: 30px; text-align: center; font-family: sans-serif; background: #09090b; color: #fff;">
+      <h2>R&amp;G Collections — Modern Luxury Menswear</h2>
+      <p>Please enable JavaScript to enjoy the full interactive 3D boutique experience, real-time catalog shopping, and instant checkout.</p>
+      <p>For custom bespoke consultations, please reach out via WhatsApp at <a href="https://wa.me/2349045231629" style="color: #cfa135;">+2349045231629</a>.</p>
+    </div>
+  </noscript>
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

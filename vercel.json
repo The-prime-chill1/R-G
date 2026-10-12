@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|.*\\.[a-zA-Z0-9]+).*)",
+      "source": "/((?!assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|site\\.webmanifest|.*\\.[a-zA-Z0-9]+).*)",
       "destination": "/index.html"
     }
   ],
@@ -11,7 +11,8 @@
       "source": "/robots.txt",
       "headers": [
         { "key": "Content-Type", "value": "text/plain; charset=UTF-8" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "X-Robots-Tag", "value": "all" }
       ]
     },
     {
@@ -26,6 +27,27 @@
       "headers": [
         { "key": "Content-Type", "value": "text/plain; charset=UTF-8" },
         { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/llms-full.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=UTF-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        { "key": "Content-Type", "value": "application/manifest+json; charset=UTF-8" },
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
       ]
     }
   ]

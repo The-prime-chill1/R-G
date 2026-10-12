@@ -1,0 +1,18 @@
+{
+  "name": "R&G Collections — Modern Luxury Menswear",
+  "short_name": "R&G",
+  "description": "Contemporary luxury menswear, handcrafted Italian footwear, and master-crafted Nigerian ceremonial native wear.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#cfa135",
+  "icons": [
+    {
+      "src": "/hero-boutique.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "fashion"]
+}

@@ -1,6 +1,6 @@
 /* ==========================================================================
    R&G COLLECTIONS - CONTACT & ATELIER SHOWROOMS PAGE
-   Strict Rules: React Icons Only, Zero Emojis
+   Strict Rules: React Icons Only, Zero Emojis, 100% Fully Responsive
    ========================================================================== */
 
 import React, { useState } from 'react';
@@ -15,6 +15,7 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import { RG_LOCATIONS } from '../data/sampleData.js';
 import { useToast } from '../context/ToastContext.jsx';
+import '../styles/contact.css';
 
 export default function ContactPage() {
   React.useEffect(() => {
@@ -39,21 +40,21 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container" style={{ padding: '3.5rem 1.5rem 6rem' }}>
-      <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 4rem' }}>
-        <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase', color: 'var(--rg-gold-500)', display: 'block', marginBottom: '0.5rem' }}>
-          CONCIERGE & ATELIERS
+    <div className="container contact-page-container">
+      <div className="contact-page-header">
+        <span className="contact-page-eyebrow">
+          CONCIERGE &amp; ATELIERS
         </span>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 900, textTransform: 'uppercase' }}>Connect with R&G</h1>
-        <p style={{ color: 'var(--rg-gray-600)', fontSize: '0.95rem', marginTop: '0.5rem' }}>
+        <h1 className="contact-page-title">Connect with R&amp;G</h1>
+        <p className="contact-page-sub">
           Schedule a private fitting, inquire about our current menswear edits, or order custom tailored pieces.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'start' }}>
+      <div className="contact-layout-grid">
         {/* Contact Form */}
-        <div style={{ background: '#fff', border: '1px solid var(--rg-gray-200)', borderRadius: 'var(--radius-xs)', padding: '2.5rem' }}>
-          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Send a Direct Inquiry</h3>
+        <div className="contact-form-card">
+          <h2 className="contact-card-title">Send a Direct Inquiry</h2>
 
           {sent ? (
             <div style={{ padding: '2rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '4px', textAlign: 'center', color: 'var(--rg-success)' }}>
@@ -134,33 +135,33 @@ export default function ContactPage() {
         </div>
 
         {/* Locations List */}
-        <div>
-          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Our Regional Hubs</h3>
+        <div className="contact-locations-col">
+          <h2 className="contact-card-title">Our Regional Hubs</h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {RG_LOCATIONS.map((loc, idx) => (
-              <div key={idx} style={{ background: 'var(--rg-ivory)', border: '1px solid var(--rg-gray-200)', padding: '1.75rem', borderRadius: 'var(--radius-xs)' }}>
-                <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', color: 'var(--rg-black)', marginBottom: '0.35rem' }}>{loc.city}</h4>
-                <div style={{ fontSize: '0.8rem', color: 'var(--rg-gold-500)', fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.85rem' }}>{loc.area}</div>
+              <div key={idx} className="contact-location-card">
+                <h3 className="contact-location-city">{loc.city}</h3>
+                <div className="contact-location-area">{loc.area}</div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--rg-gray-600)' }}>
-                  <div style={{ display: 'flex', gap: '8px' }}>
+                <div className="contact-location-details">
+                  <div className="contact-location-row">
                     <FiMapPin style={{ flexShrink: 0, marginTop: '3px' }} />
                     <span>{loc.address}</span>
                   </div>
-                  <div style={{ display: 'flex', gap: '8px' }}>
+                  <div className="contact-location-row">
                     <FiClock style={{ flexShrink: 0, marginTop: '3px' }} />
                     <span>{loc.hours}</span>
                   </div>
-                  <div style={{ display: 'flex', gap: '8px' }}>
+                  <div className="contact-location-row">
                     <FiPhone style={{ flexShrink: 0, marginTop: '3px' }} />
                     <span>{loc.phone}</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
-                  <a href={`tel:${loc.phone}`} className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.75rem' }}>Call Hub</a>
-                  <a href={`https://wa.me/234${loc.phone.replace(/^0/, '')}?text=Hello%20R%26G%20Collections`} target="_blank" rel="noreferrer" className="btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.75rem', background: '#25D366', borderColor: '#25D366' }}>
+                <div className="contact-location-actions">
+                  <a href={`tel:${loc.phone}`} className="btn-secondary" style={{ padding: '0.65rem 1rem', fontSize: '0.8rem' }}>Call Hub</a>
+                  <a href={`https://wa.me/234${loc.phone.replace(/^0/, '')}?text=Hello%20R%26G%20Collections`} target="_blank" rel="noreferrer" className="btn-primary" style={{ padding: '0.65rem 1rem', fontSize: '0.8rem', background: '#25D366', borderColor: '#25D366' }}>
                     <FaWhatsapp /> WhatsApp
                   </a>
                 </div>

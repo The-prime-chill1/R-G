@@ -1,12 +1,13 @@
 /* ==========================================================================
    R&G COLLECTIONS - COLLECTIONS & LOOKBOOKS PAGE
-   Strict Rules: React Icons Only, Zero Emojis
+   Strict Rules: React Icons Only, Zero Emojis, 100% Fully Responsive
    ========================================================================== */
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import { RG_LOOKBOOKS } from '../data/sampleData.js';
+import '../styles/collections.css';
 
 export default function CollectionsPage() {
   React.useEffect(() => {
@@ -30,76 +31,77 @@ export default function CollectionsPage() {
   };
 
   return (
-    <div className="container" style={{ padding: '3.5rem 1.5rem 6rem' }}>
-      <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
-        <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase', color: 'var(--rg-gold-500)', display: 'block', marginBottom: '0.5rem' }}>
-          ARCHIVE & EDITORIAL LOOKS
+    <div className="container collections-page-container">
+      <div className="collections-header">
+        <span className="collections-eyebrow">
+          ARCHIVE &amp; EDITORIAL LOOKS
         </span>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 900, textTransform: 'uppercase' }}>Wardrobe Lookbooks</h1>
-        <p style={{ color: 'var(--rg-gray-600)', fontSize: '0.95rem', marginTop: '0.5rem' }}>
+        <h1 className="collections-title">Wardrobe Lookbooks</h1>
+        <p className="collections-subtitle">
           Explore curated full outfits designed for evening occasions, boardrooms, and weekend leisure.
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
-        {RG_LOOKBOOKS.map((look, index) => (
-          <div 
-            key={look.id}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: index % 2 === 0 ? '1.1fr 1fr' : '1fr 1.1fr',
-              gap: '3rem',
-              alignItems: 'center',
-              background: 'var(--rg-ivory)',
-              padding: '2.5rem',
-              borderRadius: 'var(--radius-xs)',
-              border: '1px solid var(--rg-gray-200)'
-            }}
-          >
-            <div style={{ order: index % 2 === 0 ? 1 : 2, height: '420px', overflow: 'hidden', borderRadius: 'var(--radius-xs)' }}>
-              <img src={look.image} alt={look.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-
-            <div style={{ order: index % 2 === 0 ? 2 : 1 }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--rg-gold-500)' }}>
-                {look.subtitle}
-              </span>
-              <h2 style={{ fontSize: '2.2rem', margin: '0.5rem 0 1rem' }}>{look.title}</h2>
-              <p style={{ color: 'var(--rg-gray-600)', fontSize: '0.92rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                Engineered for maximum visual harmony, combining tailored native or casual silhouettes with handcrafted Italian calfskin footwear.
-              </p>
-
-              <div style={{ background: '#fff', padding: '1.25rem', borderRadius: 'var(--radius-xs)', border: '1px solid var(--rg-gray-200)', marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--rg-gray-400)', marginBottom: '0.65rem' }}>
-                  Pieces in this Look:
-                </div>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  {look.items.map((item, idx) => (
-                    <li key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem' }}>
-                      <span>{item.name}</span>
-                      <strong>{formatNaira(item.price)}</strong>
-                    </li>
-                  ))}
-                </ul>
+      <div className="collections-list">
+        {RG_LOOKBOOKS.map((look, index) => {
+          const isReverse = index % 2 !== 0;
+          return (
+            <article 
+              key={look.id}
+              className={`lookbook-card ${isReverse ? 'reverse-layout' : ''}`}
+            >
+              <div className="lookbook-image-col">
+                <img 
+                  src={look.image} 
+                  alt={`${look.title} - ${look.subtitle}`} 
+                  className="lookbook-image" 
+                  loading="lazy"
+                />
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div>
-                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--rg-gray-500)' }}>Complete Set</span>
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--rg-black)' }}>{formatNaira(look.total)}</div>
+              <div className="lookbook-content-col">
+                <span className="lookbook-tag">
+                  {look.subtitle}
+                </span>
+                <h2 className="lookbook-name">{look.title}</h2>
+                <p className="lookbook-desc">
+                  Engineered for maximum visual harmony, combining tailored native or casual silhouettes with handcrafted Italian calfskin footwear.
+                </p>
+
+                <div className="lookbook-pieces-box">
+                  <div className="lookbook-pieces-header">
+                    Pieces in this Look:
+                  </div>
+                  <ul className="lookbook-pieces-list">
+                    {look.items.map((item, idx) => (
+                      <li key={idx} className="lookbook-piece-item">
+                        <span className="lookbook-piece-name">{item.name}</span>
+                        <span className="lookbook-piece-price">{formatNaira(item.price)}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <button 
-                  className="btn-primary" 
-                  style={{ background: 'var(--rg-gold-gradient)', color: '#000', border: 'none' }}
-                  onClick={() => handleOrderLook(look)}
-                >
-                  <FaWhatsapp /> Order Look on WhatsApp
-                </button>
+                <div className="lookbook-action-row">
+                  <div className="lookbook-price-block">
+                    <span className="lookbook-price-label">Complete Set</span>
+                    <div className="lookbook-total-price">{formatNaira(look.total)}</div>
+                  </div>
+
+                  <button 
+                    type="button"
+                    className="lookbook-order-btn" 
+                    onClick={() => handleOrderLook(look)}
+                    aria-label={`Order ${look.title} complete look on WhatsApp`}
+                  >
+                    <FaWhatsapp size={17} />
+                    <span>Order Look on WhatsApp</span>
+                  </button>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </div>
   );

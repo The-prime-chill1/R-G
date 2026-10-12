@@ -1,0 +1,313 @@
+/* ==========================================================================
+   R&G COLLECTIONS - WARDROBE LOOKBOOKS & COLLECTIONS STYLES
+   100% Responsive for Mobile Phones (all viewports), Tablets, and Desktops
+   ========================================================================== */
+
+.collections-page-container {
+  padding: 3.5rem 1.5rem 6rem;
+}
+
+.collections-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.collections-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--rg-gold-500);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.collections-title {
+  font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.collections-subtitle {
+  color: var(--rg-gray-600);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+.collections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Lookbook Card */
+.lookbook-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--rg-ivory);
+  padding: 2.5rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--rg-gray-200);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.lookbook-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.lookbook-card.reverse-layout {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+/* Image Wrapper */
+.lookbook-image-col {
+  height: 440px;
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+  background: #e4e4e7;
+  position: relative;
+}
+
+.lookbook-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lookbook-card:hover .lookbook-image {
+  transform: scale(1.03);
+}
+
+/* Content Details */
+.lookbook-content-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents flex children from overflowing */
+}
+
+.lookbook-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rg-gold-500);
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  word-break: break-word;
+}
+
+.lookbook-name {
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+  line-height: 1.2;
+  margin: 0.35rem 0 0.85rem;
+  word-break: break-word;
+}
+
+.lookbook-desc {
+  color: var(--rg-gray-600);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+/* Pieces Box */
+.lookbook-pieces-box {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--rg-gray-200);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.lookbook-pieces-header {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--rg-gray-400);
+  margin-bottom: 0.75rem;
+}
+
+.lookbook-pieces-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0;
+}
+
+.lookbook-piece-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px dashed var(--rg-gray-200);
+}
+
+.lookbook-piece-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.lookbook-piece-name {
+  color: var(--rg-black);
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.lookbook-piece-price {
+  font-weight: 800;
+  color: var(--rg-black);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Footer / Action */
+.lookbook-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.lookbook-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.lookbook-price-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--rg-gray-500);
+}
+
+.lookbook-total-price {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--rg-black);
+  line-height: 1.2;
+}
+
+.lookbook-order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--rg-gold-gradient);
+  color: #000;
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-xs);
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lookbook-order-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Tablet & Mobile)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .lookbook-card,
+  .lookbook-card.reverse-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.75rem;
+  }
+
+  /* Always stack image on TOP on tablets & mobile */
+  .lookbook-image-col {
+    order: 1 !important;
+    height: 360px;
+    width: 100%;
+  }
+
+  .lookbook-content-col {
+    order: 2 !important;
+    width: 100%;
+  }
+
+  .lookbook-action-row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .collections-page-container {
+    padding: 2rem 1rem 5rem;
+  }
+
+  .collections-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .collections-list {
+    gap: 2.5rem;
+  }
+
+  .lookbook-card,
+  .lookbook-card.reverse-layout {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-xs);
+    gap: 1.5rem;
+  }
+
+  .lookbook-image-col {
+    height: 280px;
+  }
+
+  .lookbook-pieces-box {
+    padding: 1rem 0.85rem;
+  }
+
+  .lookbook-piece-item {
+    font-size: 0.82rem;
+  }
+
+  .lookbook-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .lookbook-price-block {
+    text-align: left;
+  }
+
+  .lookbook-total-price {
+    font-size: 1.3rem;
+  }
+
+  .lookbook-order-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.85rem;
+    padding: 0.9rem 1rem;
+  }
+}

@@ -1,10 +1,12 @@
 /* ==========================================================================
    R&G COLLECTIONS - ABOUT & BRAND ATELIER STORY
+   Strict Rules: React Icons Only, Zero Emojis, 100% Fully Responsive
    ========================================================================== */
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiShield, FiScissors, FiAward } from 'react-icons/fi';
+import '../styles/about.css';
 
 export default function AboutPage() {
   React.useEffect(() => {
@@ -14,15 +16,15 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section style={{ background: 'var(--rg-black)', color: '#fff', padding: '6rem 1.5rem', textAlign: 'center' }}>
+      <section className="about-hero-section">
         <div className="container-narrow">
-          <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase', color: 'var(--rg-gold-400)', display: 'block', marginBottom: '1rem' }}>
+          <span className="about-eyebrow">
             THE R&amp;G HERITAGE
           </span>
-          <h1 style={{ fontSize: '3rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem', color: '#fff' }}>
+          <h1 className="about-hero-title">
             The Essence of Modern Sartorial Power
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'var(--rg-gray-400)', lineHeight: '1.8', maxWidth: '680px', margin: '0 auto' }}>
+          <p className="about-hero-sub">
             Founded and led by <strong style={{ color: '#fff' }}>RAJ — Rasaq Annu Jamiu</strong>, R&amp;G Collections is a premium Nigerian fashion label built to dress men of substance with dignity, structure, and uncompromising quality.
           </p>
         </div>
@@ -31,14 +33,14 @@ export default function AboutPage() {
       {/* Main Story Content */}
       <section className="section-spacer container-narrow">
         {/* Founder Card */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', background: 'var(--rg-black)', borderRadius: 'var(--radius-xs)', padding: '2.5rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
-          <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'linear-gradient(135deg, #c9a84c, #e8c96d)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', fontWeight: 900, color: '#09090b', flexShrink: 0, fontFamily: 'var(--font-sans)', letterSpacing: '1px' }}>
+        <div className="about-founder-card">
+          <div className="about-founder-avatar">
             RAJ
           </div>
-          <div>
-            <div style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--rg-gold-400)', marginBottom: '0.35rem' }}>Founder &amp; Creative Director</div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem', fontFamily: 'var(--font-sans)' }}>Rasaq Annu Jamiu</h2>
-            <p style={{ fontSize: '0.9rem', color: 'var(--rg-gray-400)', lineHeight: '1.7', maxWidth: '520px', margin: 0 }}>
+          <div className="about-founder-content">
+            <div className="about-founder-role">Founder &amp; Creative Director</div>
+            <h2 className="about-founder-name">Rasaq Annu Jamiu</h2>
+            <p className="about-founder-bio">
               RAJ built R&amp;G Collections from a singular vision — that Nigerian men deserve fashion that commands respect. With a deep appreciation for sartorial craft, he leads every design decision, sourcing, and brand direction personally.
             </p>
           </div>
@@ -57,20 +59,20 @@ export default function AboutPage() {
         </div>
 
         {/* Pillars Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem', marginTop: '4rem' }}>
-          <div style={{ padding: '2rem', background: 'var(--rg-ivory)', borderRadius: 'var(--radius-xs)', border: '1px solid var(--rg-gray-200)' }}>
+        <div className="about-pillars-grid">
+          <div className="about-pillar-card">
             <div style={{ fontSize: '1.75rem', color: 'var(--rg-gold-500)', marginBottom: '1rem' }}><FiScissors /></div>
             <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Bespoke Precision</h3>
             <p style={{ fontSize: '0.85rem', color: 'var(--rg-gray-600)' }}>Every cut is balanced for the modern male silhouette, ensuring effortless movement and confidence.</p>
           </div>
 
-          <div style={{ padding: '2rem', background: 'var(--rg-ivory)', borderRadius: 'var(--radius-xs)', border: '1px solid var(--rg-gray-200)' }}>
+          <div className="about-pillar-card">
             <div style={{ fontSize: '1.75rem', color: 'var(--rg-gold-500)', marginBottom: '1rem' }}><FiAward /></div>
             <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Artisanal Integrity</h3>
             <p style={{ fontSize: '0.85rem', color: 'var(--rg-gray-600)' }}>We reject fleeting fast-fashion trends in favor of timeless designs built to last for generations.</p>
           </div>
 
-          <div style={{ padding: '2rem', background: 'var(--rg-ivory)', borderRadius: 'var(--radius-xs)', border: '1px solid var(--rg-gray-200)' }}>
+          <div className="about-pillar-card">
             <div style={{ fontSize: '1.75rem', color: 'var(--rg-gold-500)', marginBottom: '1rem' }}><FiShield /></div>
             <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Pan-African Reach</h3>
             <p style={{ fontSize: '0.85rem', color: 'var(--rg-gray-600)' }}>Headquartered across Lagos and Akure with dedicated rapid dispatch to Achievers University Owo.</p>

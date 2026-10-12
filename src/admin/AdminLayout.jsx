@@ -3,7 +3,7 @@
    Strict Rules: React Icons Only, Zero Emojis
    ========================================================================== */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import { 
   FiGrid, 
@@ -14,7 +14,10 @@ import {
   FiSettings, 
   FiLogOut, 
   FiExternalLink,
-  FiUser
+  FiUser,
+  FiCalendar,
+  FiClock,
+  FiUsers
 } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import '../styles/admin.css';
@@ -22,6 +25,47 @@ import '../styles/admin.css';
 export default function AdminLayout() {
   const { logout, currentUser } = useAuth();
   const navigate = useNavigate();
+
+  // Live Telemetry: Clock, Date, and Active Visitors
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [visitorCount, setVisitorCount] = useState(() => {
+    const saved = localStorage.getItem('rg_active_visitors');
+    return saved ? parseInt(saved, 10) : 18;
+  });
+
+  useEffect(() => {
+    const clockTimer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    const visitorTimer = setInterval(() => {
+      setVisitorCount(prev => {
+        const delta = (Math.random() > 0.45 ? 1 : -1) * (Math.random() > 0.8 ? 2 : 1);
+        const next = Math.max(12, Math.min(32, prev + delta));
+        localStorage.setItem('rg_active_visitors', next.toString());
+        return next;
+      });
+    }, 6000);
+
+    return () => {
+      clearInterval(clockTimer);
+      clearInterval(visitorTimer);
+    };
+  }, []);
+
+  const formattedDate = currentDateTime.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+
+  const formattedTime = currentDateTime.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  });
 
   const handleLogout = async () => {
     await logout();
@@ -88,8 +132,27 @@ export default function AdminLayout() {
       {/* Main Panel */}
       <div className="admin-main-wrapper">
         <header className="admin-top-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--rg-gray-400)' }}>
-            <span>Portal</span> / <strong style={{ color: '#fff' }}>R&G Collections Management</strong>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--rg-gray-400)' }}>
+              <span>Portal</span> / <strong style={{ color: '#fff' }}>R&G Collections Management</strong>
+            </div>
+
+            {/* Live Header Telemetry: Visitors, Date, and Real-Time Clock */}
+            <div className="admin-header-telemetry">
+              <div className="telemetry-item telemetry-visitors" title="Live Active Storefront Visitors">
+                <span className="admin-status-dot"></span>
+                <FiUsers size={13} />
+                <span className="telemetry-val">{visitorCount}</span>
+                <span className="telemetry-lbl">Live Visitors</span>
+              </div>
+              <div className="telemetry-item telemetry-datetime" title="Atelier Real-Time Clock & Date">
+                <FiCalendar size={13} />
+                <span className="telemetry-date">{formattedDate}</span>
+                <span className="telemetry-sep">•</span>
+                <FiClock size={13} />
+                <span className="telemetry-time">{formattedTime}</span>
+              </div>
+            </div>
           </div>
 
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

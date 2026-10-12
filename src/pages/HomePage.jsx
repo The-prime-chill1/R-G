@@ -21,7 +21,7 @@ import { RG_LOOKBOOKS, RG_TESTIMONIALS } from '../data/sampleData.js';
 import '../styles/editorial-home.css';
 
 // Signature photography assets
-const HERO_RACK_IMAGE = '/@fs/C:/Users/Hp/.gemini/antigravity-ide/brain/8e5dcdea-81bd-47c0-989b-e048d86f29d1/.user_uploaded/media_1789636963083.png';
+const HERO_RACK_IMAGE = 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=85';
 
 export default function HomePage() {
   const { products, lookbooks } = useShop();

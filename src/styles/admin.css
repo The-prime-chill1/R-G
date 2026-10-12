@@ -428,4 +428,119 @@
 .form-label-custom {
   display: block;
   font-size: 0.82rem;
-  font-weight: 700
+  font-weight: 700;
+  color: #e4e4e7;
+  margin-bottom: 0.5rem;
+}
+
+.input-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.95rem;
+  color: var(--rg-gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.input-with-icon {
+  padding-left: 2.6rem !important;
+}
+
+/* Password Input & Show/Hide Password Toggle */
+.password-field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-field-wrapper .form-control {
+  width: 100%;
+  padding-right: 3rem !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--rg-gray-400);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+  outline: none;
+  z-index: 2;
+}
+
+.password-toggle-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.password-toggle-btn.is-revealed {
+  color: var(--rg-gold-400);
+}
+
+.password-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+
+.auth-error-banner {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid var(--rg-status-danger);
+  color: #fca5a5;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  display: none;
+}
+
+.auth-card-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-security-note {
+  font-size: 0.72rem;
+  color: var(--rg-gray-400);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.auth-storefront-link {
+  font-size: 0.82rem;
+  color: var(--rg-gold-400);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.auth-storefront-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .admin-auth-card {
+    padding: 2rem 1.5rem;
+  }
+}

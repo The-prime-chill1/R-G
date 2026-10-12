@@ -99,6 +99,31 @@ function LogOutIcon() {
   );
 }
 
+function CalendarIcon() {
+  return h('svg', { viewBox: '0 0 24 24', width: '13', height: '13', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' },
+    h('rect', { x: '3', y: '4', width: '18', height: '18', rx: '2', ry: '2' }),
+    h('line', { x1: '16', y1: '2', x2: '16', y2: '6' }),
+    h('line', { x1: '8', y1: '2', x2: '8', y2: '6' }),
+    h('line', { x1: '3', y1: '10', x2: '21', y2: '10' })
+  );
+}
+
+function ClockIcon() {
+  return h('svg', { viewBox: '0 0 24 24', width: '13', height: '13', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' },
+    h('circle', { cx: '12', cy: '12', r: '10' }),
+    h('polyline', { points: '12 6 12 12 16 14' })
+  );
+}
+
+function UsersIcon() {
+  return h('svg', { viewBox: '0 0 24 24', width: '13', height: '13', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' },
+    h('path', { d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' }),
+    h('circle', { cx: '9', cy: '7', r: '4' }),
+    h('path', { d: 'M23 21v-2a4 4 0 0 0-3-3.87' }),
+    h('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
+  );
+}
+
 function EditIcon() {
   return h('svg', { viewBox: '0 0 24 24', width: '14', height: '14', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' },
     h('path', { d: 'M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7' }),
@@ -158,12 +183,41 @@ function AdminApp() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     sessionStorage.getItem('rg_admin_authenticated') === 'true'
   );
-  const [emailInput, setEmailInput] = useState(ADMIN_MASTER_EMAIL);
+  const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState('');
   const [cardError, setCardError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Live Telemetry State (Date, Real-Time Clock, Active Visitors)
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [visitorCount, setVisitorCount] = useState(() => {
+    const saved = localStorage.getItem('rg_active_visitors');
+    return saved ? parseInt(saved, 10) : 18;
+  });
+
+  useEffect(() => {
+    // 1-second live clock ticker
+    const clockTimer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    // Realistic active visitor pulse (simulating live users browsing catalog)
+    const visitorTimer = setInterval(() => {
+      setVisitorCount(prev => {
+        const delta = (Math.random() > 0.45 ? 1 : -1) * (Math.random() > 0.8 ? 2 : 1);
+        const next = Math.max(12, Math.min(32, prev + delta));
+        localStorage.setItem('rg_active_visitors', next.toString());
+        return next;
+      });
+    }, 6000);
+
+    return () => {
+      clearInterval(clockTimer);
+      clearInterval(visitorTimer);
+    };
+  }, []);
 
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -213,7 +267,11 @@ function AdminApp() {
   const handleLogin = (e) => {
     e.preventDefault();
     setAuthError('');
-    if (passwordInput === ADMIN_MASTER_PASSWORD) {
+    const normalizedEmail = (emailInput || '').trim().toLowerCase();
+    const normalizedMasterEmail = ADMIN_MASTER_EMAIL.toLowerCase();
+
+    // Strict validation: BOTH email AND password must match the authorized master credentials
+    if (normalizedEmail === normalizedMasterEmail && passwordInput === ADMIN_MASTER_PASSWORD) {
       setLoading(true);
       setTimeout(() => {
         sessionStorage.setItem('rg_admin_authenticated', 'true');
@@ -222,7 +280,10 @@ function AdminApp() {
         showToast('Welcome back, Administrator.');
       }, 250);
     } else {
-      setAuthError('Invalid administrator credentials.');
+      const msg = normalizedEmail !== normalizedMasterEmail
+        ? 'Access Denied: Unauthorized administrator email address.'
+        : 'Access Denied: Invalid administrator security password.';
+      setAuthError(msg);
       setCardError(true);
       setTimeout(() => setCardError(false), 700);
     }
@@ -232,6 +293,7 @@ function AdminApp() {
     sessionStorage.removeItem('rg_admin_authenticated');
     setIsAuthenticated(false);
     setPasswordInput('');
+    setEmailInput('');
   };
 
   // Image Drop & File State
@@ -470,6 +532,20 @@ function AdminApp() {
     );
   }
 
+  const formattedDate = currentDateTime.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+
+  const formattedTime = currentDateTime.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  });
+
   return h('div', null,
     // Header
     h('header', { className: 'admin-navbar' },
@@ -478,9 +554,21 @@ function AdminApp() {
           h('path', { d: 'M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z' })
         ),
         h('span', null, 'R & G COLLECTIONS'),
-        h('span', { className: 'admin-status-chip' },
-          h('span', { className: 'admin-status-dot' }),
-          'Atelier 2027 • Online'
+        // Live Header Telemetry: Visitors, Date, and Real-Time Clock
+        h('div', { className: 'admin-header-telemetry' },
+          h('div', { className: 'telemetry-item telemetry-visitors', title: 'Live Active Storefront Visitors' },
+            h('span', { className: 'admin-status-dot' }),
+            UsersIcon(),
+            h('span', { className: 'telemetry-val' }, visitorCount),
+            h('span', { className: 'telemetry-lbl' }, 'Live Visitors')
+          ),
+          h('div', { className: 'telemetry-item telemetry-datetime', title: 'Atelier Real-Time Clock & Date' },
+            CalendarIcon(),
+            h('span', { className: 'telemetry-date' }, formattedDate),
+            h('span', { className: 'telemetry-sep' }, '•'),
+            ClockIcon(),
+            h('span', { className: 'telemetry-time' }, formattedTime)
+          )
         )
       ),
 

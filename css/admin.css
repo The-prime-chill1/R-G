@@ -326,20 +326,98 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.admin-status-chip {
+/* Live Header Telemetry: Visitors, Date, and Time */
+.admin-header-telemetry {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #10b981;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  padding: 4px 10px;
+  gap: 0.75rem;
+  margin-left: 1.25rem;
+}
+
+.telemetry-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(22, 22, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px 12px;
   border-radius: 100px;
-  text-transform: uppercase;
-  margin-left: 0.75rem;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.telemetry-item:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(26, 26, 34, 0.95);
+}
+
+.telemetry-visitors {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.28);
+  color: #34d399;
+}
+
+.telemetry-visitors svg {
+  color: #10b981;
+}
+
+.telemetry-visitors .telemetry-val {
+  font-weight: 800;
+  color: #10b981;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.telemetry-visitors .telemetry-lbl {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 0.72rem;
+}
+
+.telemetry-datetime {
+  background: rgba(212, 175, 55, 0.07);
+  border-color: rgba(212, 175, 55, 0.22);
+  color: #e4e4e7;
+}
+
+.telemetry-datetime svg {
+  color: var(--gold-400);
+}
+
+.telemetry-date {
+  font-weight: 600;
+  color: #d4d4d8;
+  font-size: 0.74rem;
+}
+
+.telemetry-sep {
+  color: var(--gold-400);
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+.telemetry-time {
+  font-weight: 700;
+  color: var(--gold-300);
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .admin-header-telemetry {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .telemetry-date, .telemetry-sep {
+    display: none;
+  }
 }
 
 .admin-status-dot {

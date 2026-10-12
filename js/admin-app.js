@@ -190,12 +190,9 @@ function AdminApp() {
   const [cardError, setCardError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Live Telemetry State (Date, Real-Time Clock, Active Visitors)
+  // Live Telemetry State (Date, Real-Time Clock, Real Active Visitors)
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [visitorCount, setVisitorCount] = useState(() => {
-    const saved = localStorage.getItem('rg_active_visitors');
-    return saved ? parseInt(saved, 10) : 18;
-  });
+  const [visitorCount, setVisitorCount] = useState(1);
 
   useEffect(() => {
     // 1-second live clock ticker
@@ -203,19 +200,39 @@ function AdminApp() {
       setCurrentDateTime(new Date());
     }, 1000);
 
-    // Realistic active visitor pulse (simulating live users browsing catalog)
-    const visitorTimer = setInterval(() => {
-      setVisitorCount(prev => {
-        const delta = (Math.random() > 0.45 ? 1 : -1) * (Math.random() > 0.8 ? 2 : 1);
-        const next = Math.max(12, Math.min(32, prev + delta));
-        localStorage.setItem('rg_active_visitors', next.toString());
-        return next;
-      });
-    }, 6000);
+    // Real visitor channel tracking
+    let channel = null;
+    const tabId = 'admin_' + Math.random().toString(36).substr(2, 6);
+    const activeTabs = new Set([tabId]);
+
+    try {
+      if ('BroadcastChannel' in window) {
+        channel = new BroadcastChannel('rg_presence_stream_v1');
+        channel.onmessage = (e) => {
+          try {
+            const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+            if (data && data.id) {
+              if (data.leave) {
+                activeTabs.delete(data.id);
+              } else {
+                activeTabs.add(data.id);
+              }
+              setVisitorCount(Math.max(1, activeTabs.size));
+            }
+          } catch (err) {}
+        };
+        channel.postMessage(JSON.stringify({ id: tabId, t: Date.now() }));
+      }
+    } catch (e) {}
 
     return () => {
       clearInterval(clockTimer);
-      clearInterval(visitorTimer);
+      if (channel) {
+        try {
+          channel.postMessage(JSON.stringify({ id: tabId, leave: true }));
+          channel.close();
+        } catch (e) {}
+      }
     };
   }, []);
 
@@ -249,12 +266,7 @@ function AdminApp() {
 
   const loadProducts = async () => {
     if (typeof productStore !== 'undefined') {
-      let list = await productStore.getAllProducts();
-      if (!list || list.length === 0) {
-        if (typeof RG_PRODUCTS !== 'undefined' && Array.isArray(RG_PRODUCTS) && RG_PRODUCTS.length > 0) {
-          list = await productStore.loadStarterCollection();
-        }
-      }
+      const list = await productStore.getAllProducts();
       setProducts(list || []);
     }
   };

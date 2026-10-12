@@ -22,34 +22,29 @@ import {
 import { useAuth } from '../context/AuthContext.jsx';
 import '../styles/admin.css';
 
+import { subscribeToVisitorCount, getCurrentVisitorCount } from '../services/presence.js';
+
 export default function AdminLayout() {
   const { logout, currentUser } = useAuth();
   const navigate = useNavigate();
 
-  // Live Telemetry: Clock, Date, and Active Visitors
+  // Live Telemetry: Clock, Date, and Real-Time Active Visitors
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [visitorCount, setVisitorCount] = useState(() => {
-    const saved = localStorage.getItem('rg_active_visitors');
-    return saved ? parseInt(saved, 10) : 18;
-  });
+  const [visitorCount, setVisitorCount] = useState(() => getCurrentVisitorCount());
 
   useEffect(() => {
     const clockTimer = setInterval(() => {
       setCurrentDateTime(new Date());
     }, 1000);
 
-    const visitorTimer = setInterval(() => {
-      setVisitorCount(prev => {
-        const delta = (Math.random() > 0.45 ? 1 : -1) * (Math.random() > 0.8 ? 2 : 1);
-        const next = Math.max(12, Math.min(32, prev + delta));
-        localStorage.setItem('rg_active_visitors', next.toString());
-        return next;
-      });
-    }, 6000);
+    // Subscribe to real live visitor presence
+    const unsubscribePresence = subscribeToVisitorCount((count) => {
+      setVisitorCount(count);
+    });
 
     return () => {
       clearInterval(clockTimer);
-      clearInterval(visitorTimer);
+      unsubscribePresence();
     };
   }, []);
 

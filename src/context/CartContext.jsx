@@ -75,13 +75,20 @@ export function CartProvider({ children }) {
 
   const applyCoupon = (code) => {
     const cleanCode = code.trim().toUpperCase();
-    if (cleanCode === 'RGEXCLUSIVE' || cleanCode === 'WELCOME10') {
-      const discount = 0.10; // 10%
-      setAppliedCoupon({ code: cleanCode, percentage: 10 });
-      addToast('Coupon applied: 10% discount added.');
-      return true;
+    try {
+      const stored = localStorage.getItem('rg_coupons_data');
+      const coupons = stored ? JSON.parse(stored) : [];
+      const match = coupons.find(c => c.code.toUpperCase() === cleanCode && c.active);
+      if (match) {
+        setAppliedCoupon({ code: match.code, percentage: Number(match.percentage) });
+        addToast(`Coupon "${match.code}" applied: ${match.percentage}% discount.`);
+        return true;
+      }
+    } catch (e) {
+      console.warn('Coupon lookup error:', e);
     }
-    addToast('Invalid or expired coupon code.', 'error');
+
+    addToast('Invalid or inactive coupon code.', 'error');
     return false;
   };
 

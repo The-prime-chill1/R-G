@@ -183,12 +183,38 @@ export default function ShopPage() {
             </div>
           </div>
 
-          {/* Products Grid */}
-          <ProductGrid 
-            products={filteredProducts} 
-            columns={3} 
-            onQuickView={p => setSelectedQuickView(p)} 
-          />
+          {/* Products Grid or Empty Catalog Coming Soon State */}
+          {products.length === 0 ? (
+            <div className="catalog-coming-soon-banner" style={{ margin: '2rem 0' }}>
+              <div className="coming-soon-crest">
+                <svg viewBox="0 0 24 24" width="30" height="30" fill="var(--rg-gold-400, #d4af37)">
+                  <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z" />
+                </svg>
+              </div>
+              <span className="coming-soon-badge">NEW CATALOG ARRIVING</span>
+              <h3 className="coming-soon-title">Atelier Goods Coming Soon</h3>
+              <p className="coming-soon-desc">
+                Our catalog is currently being updated with the latest bespoke menswear and tailored pieces. When items are published by our atelier, they will be instantly available for ordering here.
+              </p>
+              <div className="coming-soon-actions">
+                <a 
+                  href="https://wa.me/2349045231629?text=Hello%20R%26G%20Collections%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20exclusive%20menswear."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ padding: '0.85rem 1.85rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.82rem' }}
+                >
+                  Order via WhatsApp Concierge
+                </a>
+              </div>
+            </div>
+          ) : (
+            <ProductGrid 
+              products={filteredProducts} 
+              columns={3} 
+              onQuickView={p => setSelectedQuickView(p)} 
+            />
+          )}
         </main>
       </div>
 

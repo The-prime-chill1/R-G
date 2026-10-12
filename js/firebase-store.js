@@ -12,13 +12,8 @@ class ProductStore {
 
   initCatalog() {
     const existing = localStorage.getItem(STORAGE_KEY);
-    if (!existing || existing === '[]') {
-      // Auto-seed with curated 2027 signature menswear collection so dashboard is alive and functional
-      if (typeof RG_PRODUCTS !== 'undefined' && Array.isArray(RG_PRODUCTS) && RG_PRODUCTS.length > 0) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(RG_PRODUCTS));
-      } else {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
-      }
+    if (!existing) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
     }
   }
 

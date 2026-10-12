@@ -21,7 +21,7 @@ import { RG_LOOKBOOKS, RG_TESTIMONIALS } from '../data/sampleData.js';
 import '../styles/editorial-home.css';
 
 // Signature photography assets
-const HERO_OUTFIT_IMAGE = '/hero-outfit.png';
+const HERO_OUTFIT_IMAGE = '/hero-outfit.jpg';
 
 export default function HomePage() {
   const { products, lookbooks } = useShop();
@@ -185,24 +185,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. BEST OF R&G PRODUCT SHOWCASE - only shown when admin has uploaded products */}
-      {bestOfProducts.length > 0 && (
-        <section className="best-of-section">
-          <div className="container">
-            <div className="best-of-header">
-              <h2 className="best-of-title">BEST OF R&amp;G</h2>
+      {/* 4. BEST OF R&G PRODUCT SHOWCASE OR ELEGANT COMING SOON BANNER */}
+      <section className="best-of-section">
+        <div className="container">
+          <div className="best-of-header">
+            <h2 className="best-of-title">BEST OF R&amp;G</h2>
+            {bestOfProducts.length > 0 && (
               <Link to="/shop" className="best-of-view-all">
                 VIEW ALL
               </Link>
-            </div>
+            )}
+          </div>
+          {bestOfProducts.length > 0 ? (
             <ProductGrid
               products={bestOfProducts}
               columns={4}
               onQuickView={prod => setSelectedQuickView(prod)}
             />
-          </div>
-        </section>
-      )}
+          ) : (
+            <div className="catalog-coming-soon-banner">
+              <div className="coming-soon-crest">
+                <svg viewBox="0 0 24 24" width="30" height="30" fill="var(--rg-gold-400, #d4af37)">
+                  <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z" />
+                </svg>
+              </div>
+              <span className="coming-soon-badge">NEW CAPSULE IN ATELIER</span>
+              <h3 className="coming-soon-title">Signature Menswear Catalog Coming Soon</h3>
+              <p className="coming-soon-desc">
+                Our master artisans and stylists are handcrafting the upcoming edition. Pieces will appear here the moment they are published from the atelier portal.
+              </p>
+              <div className="coming-soon-actions">
+                <a 
+                  href="https://wa.me/2349045231629?text=Hello%20R%26G%20Collections%2C%20I%20would%20like%20to%20inquire%20about%20your%20upcoming%20menswear%20pieces."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ padding: '0.85rem 1.85rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.82rem' }}
+                >
+                  Contact Concierge via WhatsApp
+                </a>
+                <Link 
+                  to="/collections" 
+                  className="btn-secondary" 
+                  style={{ padding: '0.85rem 1.85rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.82rem' }}
+                >
+                  View Styled Lookbooks
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* 5. WARDROBE LOOKBOOKS - only shown when lookbooks exist */}
       {lookbooks && lookbooks.length > 0 && (

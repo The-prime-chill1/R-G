@@ -320,28 +320,41 @@
    Admin Authentication Screen (Clean, Normal, Luxury Card)
    ========================================================================== */
 .admin-auth-screen {
+  position: fixed;
+  inset: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 30%, #15151c 0%, #0d0d12 60%, #08080a 100%);
+  background-image:
+    linear-gradient(135deg, rgba(9, 9, 13, 0.85) 0%, rgba(12, 12, 18, 0.78) 50%, rgba(7, 7, 10, 0.90) 100%),
+    radial-gradient(circle at 50% 40%, rgba(20, 20, 28, 0.2) 0%, rgba(9, 9, 12, 0.95) 100%),
+    url('/admin-store-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 2rem 1.5rem;
+  z-index: 1000;
+  overflow-y: auto;
 }
 
 .admin-auth-card {
   width: 100%;
   max-width: 440px;
-  background: rgba(18, 18, 24, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  border-radius: 16px;
+  background: rgba(14, 14, 19, 0.88);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 18px;
   padding: 2.75rem 2.25rem;
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.8),
-    0 0 35px rgba(212, 175, 55, 0.06);
+    0 30px 75px rgba(0, 0, 0, 0.85),
+    0 0 45px rgba(212, 175, 55, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   text-align: left;
   animation: authCardFadeIn 0.45s ease-out;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes authCardFadeIn {
@@ -451,8 +464,61 @@
   z-index: 2;
 }
 
+.form-control {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  background: rgba(22, 22, 28, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: var(--radius-sm, 6px);
+  color: #ffffff !important;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: var(--rg-gold-400, #d4af37) !important;
+  background: rgba(28, 28, 36, 0.96) !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2), 0 0 15px rgba(212, 175, 55, 0.15) !important;
+}
+
+.form-control::placeholder {
+  color: var(--rg-gray-500, #71717a) !important;
+}
+
 .input-with-icon {
   padding-left: 2.6rem !important;
+}
+
+.admin-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--rg-gold-gradient, linear-gradient(135deg, #d4af37, #aa820a));
+  color: #0a0a0a !important;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.admin-btn-primary:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+}
+
+.admin-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* Password Input & Show/Hide Password Toggle */

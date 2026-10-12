@@ -14,6 +14,7 @@ import CartDrawer from './components/CartDrawer.jsx';
 import SearchOverlay from './components/SearchOverlay.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 import { AdminRoute } from './components/ProtectedRoute.jsx';
+import { initPresence } from './services/presence.js';
 
 // Context Providers
 import { ToastProvider } from './context/ToastContext.jsx';
@@ -70,6 +71,10 @@ function MainLayout({ children }) {
 }
 
 export default function App() {
+  React.useEffect(() => {
+    initPresence();
+  }, []);
+
   return (
     <ToastProvider>
       <AuthProvider>

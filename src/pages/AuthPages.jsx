@@ -9,6 +9,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FiLock, FiMail, FiUser, FiArrowRight, FiShield, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useToast } from '../context/ToastContext.jsx';
+import adminBgImage from '../assets/admin-store-bg.jpg';
 import '../styles/admin.css';
 
 export function LoginPage() {
@@ -278,7 +279,12 @@ export function AdminLoginPage() {
   };
 
   return (
-    <div className="admin-auth-screen">
+    <div 
+      className="admin-auth-screen"
+      style={{
+        backgroundImage: `linear-gradient(135deg, rgba(9, 9, 13, 0.85) 0%, rgba(12, 12, 18, 0.78) 50%, rgba(7, 7, 10, 0.90) 100%), radial-gradient(circle at 50% 40%, rgba(20, 20, 28, 0.2) 0%, rgba(9, 9, 12, 0.95) 100%), url(${adminBgImage})`
+      }}
+    >
       <div className={`admin-auth-card ${cardError ? 'card-error' : ''}`}>
         {/* Atelier Brand Crest */}
         <div className="admin-auth-brand-wrap">

@@ -27,6 +27,7 @@
   font-size: clamp(1.8rem, 4.5vw, 2.5rem);
   font-weight: 900;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .contact-page-sub {
@@ -114,17 +115,30 @@
   }
 }
 
+@media (max-width: 768px) {
+  .contact-form-card .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .contact-form-card input,
+  .contact-form-card select,
+  .contact-form-card textarea {
+    font-size: 16px !important;
+  }
+}
+
 @media (max-width: 600px) {
   .contact-page-container {
     padding: 2rem 1rem 5rem;
   }
 
   .contact-page-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .contact-form-card {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
   }
 
   .contact-location-card {

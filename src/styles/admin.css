@@ -301,6 +301,103 @@
   border-color: var(--rg-gold-400);
 }
 
+/* Responsive Two Column Grid (Categories, Coupons, etc.) */
+.admin-two-col-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .admin-two-col-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* Responsive Settings Card */
+.admin-settings-card {
+  background: var(--rg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .admin-settings-card {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* Desktop Table vs Mobile Cards Views */
+.admin-desktop-table-view {
+  display: block;
+}
+
+.admin-mobile-cards-view {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-desktop-table-view {
+    display: none;
+  }
+  .admin-mobile-cards-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Mobile Item Card */
+.admin-item-card {
+  background: var(--rg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.15rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-item-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.admin-item-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--rg-gray-400);
+}
+
+.admin-item-card-actions {
+  display: flex;
+  gap: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-item-card-actions button,
+.admin-item-card-actions a {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
 /* Responsive Coupons Grid */
 .admin-coupons-grid {
   display: grid;
@@ -316,6 +413,7 @@
   gap: 1rem;
   margin-bottom: 1.25rem;
 }
+
 
 /* Mobile Navigation Toggle & Drawer Elements */
 .admin-mobile-menu-toggle {

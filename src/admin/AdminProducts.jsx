@@ -210,78 +210,151 @@ export default function AdminProducts() {
         </div>
       </div>
 
-      {/* Products Table */}
+      {/* Products Table & Mobile Cards */}
       <div className="admin-table-card">
-        <table className="admin-data-table">
-          <thead>
-            <tr>
-              <th>Good / Cover Photo</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>Stock</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProducts.length === 0 ? (
+        {/* Desktop Table View */}
+        <div className="admin-desktop-table-view">
+          <table className="admin-data-table">
+            <thead>
               <tr>
-                <td colSpan={6} style={{ textAlign: 'center', padding: '3rem', color: 'var(--rg-gray-400)' }}>
-                  No goods found matching your search.
-                </td>
+                <th>Good / Cover Photo</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
-            ) : (
-              filteredProducts.map(product => (
-                <tr key={product.id}>
-                  <td>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <img src={product.image} alt={product.name} style={{ width: '48px', height: '56px', objectFit: 'cover', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.1)' }} />
-                      <div>
-                        <strong>{product.name}</strong>
-                        <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--rg-gray-400)' }}>
-                          Sizes: {Array.isArray(product.sizes) ? product.sizes.join(', ') : 'Standard'}
-                        </span>
-                        {product.gallery && product.gallery.length > 0 && (
-                          <span style={{ fontSize: '0.7rem', color: 'var(--rg-gold-400)' }}>+{product.gallery.length} angle photos</span>
-                        )}
-                      </div>
-                    </div>
-                  </td>
-                  <td>{product.categoryLabel || product.category}</td>
-                  <td><strong>{formatNaira(product.price)}</strong></td>
-                  <td>{product.stockQuantity || 10} units</td>
-                  <td>
-                    <span style={{ display: 'inline-block', padding: '3px 8px', borderRadius: '4px', background: product.inStock !== false ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)', color: product.inStock !== false ? 'var(--rg-success)' : 'var(--rg-error)', fontSize: '0.72rem', fontWeight: 800 }}>
-                      {product.inStock !== false ? 'In Stock' : 'Out of Stock'}
-                    </span>
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '0.5rem' }}>
-                      <button 
-                        onClick={() => handleOpenEdit(product)}
-                        style={{ padding: '4px 8px', background: 'var(--rg-surface-elevated)', color: 'var(--rg-gold-300)', border: '1px solid rgba(207,161,53,0.3)', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}
-                      >
-                        <FiEdit /> Edit
-                      </button>
-                      <button 
-                        onClick={() => handleDelete(product.id, product.name)}
-                        style={{ padding: '4px 8px', background: 'rgba(239,68,68,0.15)', color: 'var(--rg-error)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}
-                      >
-                        <FiTrash2 /> Delete
-                      </button>
-                    </div>
+            </thead>
+            <tbody>
+              {filteredProducts.length === 0 ? (
+                <tr>
+                  <td colSpan={6} style={{ textAlign: 'center', padding: '3rem', color: 'var(--rg-gray-400)' }}>
+                    No goods found matching your search.
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                filteredProducts.map(product => (
+                  <tr key={product.id}>
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <img src={product.image} alt={product.name} style={{ width: '48px', height: '56px', objectFit: 'cover', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.1)' }} />
+                        <div>
+                          <strong>{product.name}</strong>
+                          <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--rg-gray-400)' }}>
+                            Sizes: {Array.isArray(product.sizes) ? product.sizes.join(', ') : 'Standard'}
+                          </span>
+                          {product.gallery && product.gallery.length > 0 && (
+                            <span style={{ fontSize: '0.7rem', color: 'var(--rg-gold-400)' }}>+{product.gallery.length} angle photos</span>
+                          )}
+                        </div>
+                      </div>
+                    </td>
+                    <td>{product.categoryLabel || product.category}</td>
+                    <td><strong>{formatNaira(product.price)}</strong></td>
+                    <td>{product.stockQuantity || 10} units</td>
+                    <td>
+                      <span style={{ display: 'inline-block', padding: '3px 8px', borderRadius: '4px', background: product.inStock !== false ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)', color: product.inStock !== false ? 'var(--rg-success)' : 'var(--rg-error)', fontSize: '0.72rem', fontWeight: 800 }}>
+                        {product.inStock !== false ? 'In Stock' : 'Out of Stock'}
+                      </span>
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <button 
+                          onClick={() => handleOpenEdit(product)}
+                          style={{ padding: '4px 8px', background: 'var(--rg-surface-elevated)', color: 'var(--rg-gold-300)', border: '1px solid rgba(207,161,53,0.3)', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}
+                        >
+                          <FiEdit /> Edit
+                        </button>
+                        <button 
+                          onClick={() => handleDelete(product.id, product.name)}
+                          style={{ padding: '4px 8px', background: 'rgba(239,68,68,0.15)', color: 'var(--rg-error)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}
+                        >
+                          <FiTrash2 /> Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile Cards View */}
+        <div className="admin-mobile-cards-view" style={{ padding: '1rem' }}>
+          {filteredProducts.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '2rem 1rem', color: 'var(--rg-gray-400)' }}>
+              No goods found matching your search.
+            </div>
+          ) : (
+            filteredProducts.map(product => (
+              <div key={product.id} className="admin-item-card">
+                <div className="admin-item-card-header">
+                  <img src={product.image} alt={product.name} style={{ width: '56px', height: '68px', objectFit: 'cover', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)' }} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <strong style={{ color: '#fff', fontSize: '0.95rem', display: 'block', wordBreak: 'break-word' }}>
+                      {product.name}
+                    </strong>
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginTop: '3px', flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: '0.72rem', background: 'rgba(255,255,255,0.08)', padding: '2px 6px', borderRadius: '4px', color: 'var(--rg-gold-300)' }}>
+                        {product.categoryLabel || product.category}
+                      </span>
+                      <span style={{ 
+                        display: 'inline-block', 
+                        padding: '2px 6px', 
+                        borderRadius: '4px', 
+                        background: product.inStock !== false ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)', 
+                        color: product.inStock !== false ? 'var(--rg-success)' : 'var(--rg-error)', 
+                        fontSize: '0.7rem', 
+                        fontWeight: 800 
+                      }}>
+                        {product.inStock !== false ? 'In Stock' : 'Out of Stock'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="admin-item-card-body">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ color: 'var(--rg-gray-400)' }}>Price:</span>
+                    <strong style={{ color: 'var(--rg-gold-300)', fontSize: '0.95rem' }}>{formatNaira(product.price)}</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ color: 'var(--rg-gray-400)' }}>Inventory:</span>
+                    <span>{product.stockQuantity || 10} units</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ color: 'var(--rg-gray-400)' }}>Sizes:</span>
+                    <span style={{ fontSize: '0.75rem' }}>{Array.isArray(product.sizes) ? product.sizes.join(', ') : 'Standard'}</span>
+                  </div>
+                </div>
+
+                <div className="admin-item-card-actions">
+                  <button 
+                    type="button"
+                    onClick={() => handleOpenEdit(product)}
+                    style={{ background: 'var(--rg-surface-elevated)', color: 'var(--rg-gold-300)', border: '1px solid rgba(207,161,53,0.3)' }}
+                  >
+                    <FiEdit /> Edit
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => handleDelete(product.id, product.name)}
+                    style={{ background: 'rgba(239,68,68,0.15)', color: 'var(--rg-error)', border: '1px solid rgba(239,68,68,0.3)' }}
+                  >
+                    <FiTrash2 /> Delete
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
 
       {/* Add / Edit Modal */}
       {isModalOpen && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(5px)', zIndex: 1500, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
-          <div style={{ background: 'var(--rg-charcoal)', border: '1px solid rgba(207,161,53,0.3)', borderRadius: '8px', maxWidth: '680px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '2rem', color: '#fff' }}>
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(5px)', zIndex: 1500, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
+          <div style={{ background: 'var(--rg-charcoal)', border: '1px solid rgba(207,161,53,0.3)', borderRadius: '8px', maxWidth: '680px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '1.5rem', color: '#fff' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '1rem', marginBottom: '1.5rem' }}>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem' }}>
                 {editingItem ? 'Edit Product & Photos' : 'Post New Good & Upload Photos'}
@@ -297,18 +370,18 @@ export default function AdminProducts() {
                   value={formFields.name}
                   onChange={e => setFormFields({ ...formFields, name: e.target.value })}
                   placeholder="e.g. Imperial Obsidian Kaftan"
-                  style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none' }}
+                  style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none', fontSize: '16px' }}
                   required
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div className="admin-form-row-grid">
                 <div>
                   <label style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--rg-gray-400)', marginBottom: '0.35rem' }}>Category *</label>
                   <select 
                     value={formFields.category}
                     onChange={e => setFormFields({ ...formFields, category: e.target.value })}
-                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none' }}
+                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none', fontSize: '16px' }}
                   >
                     {categories.map(c => (
                       <option key={c.id} value={c.id}>{c.name}</option>
@@ -323,12 +396,12 @@ export default function AdminProducts() {
                     value={formFields.tag}
                     onChange={e => setFormFields({ ...formFields, tag: e.target.value })}
                     placeholder="Bestseller, Essential, Exclusive"
-                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none' }}
+                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none', fontSize: '16px' }}
                   />
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div className="admin-form-row-grid">
                 <div>
                   <label style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--rg-gray-400)', marginBottom: '0.35rem' }}>Price (NGN) *</label>
                   <input 
@@ -336,7 +409,7 @@ export default function AdminProducts() {
                     value={formFields.price}
                     onChange={e => setFormFields({ ...formFields, price: e.target.value })}
                     placeholder="65000"
-                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none' }}
+                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none', fontSize: '16px' }}
                     required
                   />
                 </div>
@@ -348,7 +421,7 @@ export default function AdminProducts() {
                     value={formFields.originalPrice}
                     onChange={e => setFormFields({ ...formFields, originalPrice: e.target.value })}
                     placeholder="80000"
-                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none' }}
+                    style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--rg-surface)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px', outline: 'none', fontSize: '16px' }}
                   />
                 </div>
               </div>

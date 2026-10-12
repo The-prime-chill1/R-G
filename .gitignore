@@ -31,3 +31,8 @@ Thumbs.db
 
 # Vercel
 .vercel/
+
+# Local utility scripts
+powershell.cmd
+push_to_github.bat
+copy_hero_bg.cjs

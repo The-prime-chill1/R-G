@@ -21,7 +21,7 @@ import { RG_LOOKBOOKS, RG_TESTIMONIALS } from '../data/sampleData.js';
 import '../styles/editorial-home.css';
 
 // Signature photography assets
-const HERO_RACK_IMAGE = 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=85';
+const HERO_OUTFIT_IMAGE = '/hero-outfit.png';
 
 export default function HomePage() {
   const { products, lookbooks } = useShop();
@@ -126,12 +126,12 @@ export default function HomePage() {
           <div className="vibes-media-pane">
             <div className="vibes-image-frame">
               <img 
-                src={HERO_RACK_IMAGE} 
-                alt="R&G New Season Collection Rack" 
+                src={HERO_OUTFIT_IMAGE} 
+                alt="R&G Bespoke Capsule Outfit" 
                 className="vibes-media-img"
               />
               <div className="vibes-frame-pill">
-                <span>ATELIER RACK</span>
+                <span>SIGNATURE CAPSULE</span>
               </div>
             </div>
           </div>

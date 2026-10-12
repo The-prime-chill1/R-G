@@ -1,0 +1,77 @@
+/* ==========================================================================
+   R&G COLLECTIONS - DESIGN SYSTEM TOKENS (PURE NORMAL CSS)
+   Theme: Obsidian Onyx, Warm Ivory, Imperial Gold
+   Strict Rules: Zero Emojis, Zero Tailwind/Bootstrap, Semantic Variables
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Color Palette - Neutrals & Luxury Metals */
+  --rg-black: #09090b;
+  --rg-charcoal: #121216;
+  --rg-surface: #18181f;
+  --rg-surface-elevated: #22222b;
+  
+  --rg-white: #ffffff;
+  --rg-ivory: #faf9f6;
+  --rg-cream: #f4f2ec;
+  --rg-gray-100: #f4f4f5;
+  --rg-gray-200: #e4e4e7;
+  --rg-gray-300: #d4d4d8;
+  --rg-gray-400: #a1a1aa;
+  --rg-gray-500: #71717a;
+  --rg-gray-600: #52525b;
+  
+  /* Metallic Champagne Gold Accents */
+  --rg-gold-100: #fbf3db;
+  --rg-gold-200: #fae092;
+  --rg-gold-300: #e5be58;
+  --rg-gold-400: #cfa135;
+  --rg-gold-500: #b08222;
+  --rg-gold-600: #8a6316;
+  --rg-gold-gradient: linear-gradient(135deg, #fce49c 0%, #d4a73b 50%, #aa7c19 100%);
+  --rg-dark-gradient: linear-gradient(180deg, rgba(9, 9, 11, 0.4) 0%, rgba(9, 9, 11, 0.95) 100%);
+  
+  /* Status Colors */
+  --rg-success: #10b981;
+  --rg-error: #ef4444;
+  --rg-warning: #f59e0b;
+  --rg-info: #3b82f6;
+
+  /* Typography */
+  --font-serif: 'Cinzel', serif;
+  --font-editorial: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Elevation & Shadows */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 20px 50px rgba(0, 0, 0, 0.15);
+  --shadow-gold: 0 4px 25px rgba(207, 161, 53, 0.25);
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Border Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Layout Containers */
+  --container-max: 1360px;
+  --container-narrow: 1080px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}

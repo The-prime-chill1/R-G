@@ -1,0 +1,48 @@
+/* ==========================================================================
+   R&G COLLECTIONS - TOAST NOTIFICATIONS STYLES (NO EMOJIS, REACT ICONS ONLY)
+   ========================================================================== */
+
+.toast-portal-root {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast-item-bubble {
+  pointer-events: auto;
+  min-width: 280px;
+  max-width: 380px;
+  background: var(--rg-black);
+  color: #ffffff;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(207, 161, 53, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.toast-icon-slot {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.toast-item-bubble.success .toast-icon-slot {
+  color: var(--rg-gold-400);
+}
+
+.toast-item-bubble.error .toast-icon-slot {
+  color: var(--rg-error);
+}
+
+.toast-item-bubble.info .toast-icon-slot {
+  color: var(--rg-info);
+}

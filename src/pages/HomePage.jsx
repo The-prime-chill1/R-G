@@ -20,8 +20,11 @@ import { useShop } from '../context/ShopContext.jsx';
 import { RG_LOOKBOOKS, RG_TESTIMONIALS } from '../data/sampleData.js';
 import '../styles/editorial-home.css';
 
+import heroBoutiqueImg from '../assets/hero-boutique.jpg';
+import heroOutfitImg from '../assets/hero-outfit.jpg';
+
 // Signature photography assets
-const HERO_OUTFIT_IMAGE = '/hero-outfit.jpg';
+const HERO_OUTFIT_IMAGE = heroOutfitImg;
 
 export default function HomePage() {
   const { products, lookbooks } = useShop();
@@ -58,7 +61,12 @@ export default function HomePage() {
       {/* 1. CINEMATIC STATEMENT HERO WITH LOADING ANIMATION (USER REQUEST) */}
       <section className="editorial-hero">
         {/* Boutique closet background layer with zoom entrance */}
-        <div className="hero-bg-layer" />
+        <div 
+          className="hero-bg-layer" 
+          style={{
+            backgroundImage: `linear-gradient(135deg, rgba(9, 9, 11, 0.70) 0%, rgba(9, 9, 11, 0.40) 50%, rgba(9, 9, 11, 0.78) 100%), radial-gradient(ellipse at center, rgba(9, 9, 11, 0.15) 0%, rgba(9, 9, 11, 0.88) 100%), url(${heroBoutiqueImg})`
+          }}
+        />
 
         {/* Ambient gold glow behind center letters */}
         <div className="hero-ambient-glow" />

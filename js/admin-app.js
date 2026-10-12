@@ -183,7 +183,12 @@ function AdminApp() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     sessionStorage.getItem('rg_admin_authenticated') === 'true'
   );
-  const [emailInput, setEmailInput] = useState('');
+  const [emailInput, setEmailInput] = useState(() => {
+    try { return localStorage.getItem('rg_remembered_admin_email') || ''; } catch { return ''; }
+  });
+  const [rememberEmail, setRememberEmail] = useState(() => {
+    try { return Boolean(localStorage.getItem('rg_remembered_admin_email')); } catch { return false; }
+  });
   const [passwordInput, setPasswordInput] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState('');
@@ -284,6 +289,11 @@ function AdminApp() {
 
     // Strict validation: BOTH email AND password must match the authorized master credentials
     if (normalizedEmail === normalizedMasterEmail && passwordInput === ADMIN_MASTER_PASSWORD) {
+      if (rememberEmail) {
+        localStorage.setItem('rg_remembered_admin_email', normalizedEmail);
+      } else {
+        localStorage.removeItem('rg_remembered_admin_email');
+      }
       setLoading(true);
       setTimeout(() => {
         sessionStorage.setItem('rg_admin_authenticated', 'true');
@@ -523,6 +533,18 @@ function AdminApp() {
                 title: showPassword ? 'Hide password' : 'Show password',
                 'aria-label': showPassword ? 'Hide password' : 'Show password'
               }, showPassword ? EyeOffIcon() : EyeIcon())
+            )
+          ),
+
+          h('div', { style: { display: 'flex', alignItems: 'center', marginBottom: '1.75rem' } },
+            h('label', { style: { display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '0.82rem', color: '#a1a1aa', userSelect: 'none' } },
+              h('input', {
+                type: 'checkbox',
+                checked: rememberEmail,
+                onChange: e => setRememberEmail(e.target.checked),
+                style: { accentColor: 'var(--gold-400)', width: '16px', height: '16px', cursor: 'pointer' }
+              }),
+              h('span', null, 'Remember Admin ID / Email')
             )
           ),
 

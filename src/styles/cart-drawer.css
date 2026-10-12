@@ -167,3 +167,18 @@
   padding: 0.95rem;
   font-size: 0.85rem;
 }
+
+@media (max-width: 480px) {
+  .cart-drawer-panel {
+    max-width: 100%;
+  }
+  .cart-drawer-header {
+    padding: 1.15rem 1rem;
+  }
+  .cart-items-scroll-area {
+    padding: 1rem;
+  }
+  .cart-drawer-footer {
+    padding: 1.15rem 1rem;
+  }
+}

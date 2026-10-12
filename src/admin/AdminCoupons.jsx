@@ -103,7 +103,7 @@ export default function AdminCoupons() {
         <p style={{ fontSize: '0.85rem', color: 'var(--rg-gray-400)' }}>Create seasonal percentage discounts and VIP codes.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '2.5rem', alignItems: 'start' }}>
+      <div className="admin-coupons-grid">
         <div className="admin-table-card">
           <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3 style={{ fontSize: '1.1rem', textTransform: 'uppercase' }}>Configured Coupons</h3>

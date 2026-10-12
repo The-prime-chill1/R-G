@@ -238,7 +238,20 @@ export function ForgotPasswordPage() {
 }
 
 export function AdminLoginPage() {
-  const [email, setEmail] = useState('rasakanu2008@gmail.com');
+  const [email, setEmail] = useState(() => {
+    try {
+      return localStorage.getItem('rg_remembered_admin_email') || '';
+    } catch {
+      return '';
+    }
+  });
+  const [rememberEmail, setRememberEmail] = useState(() => {
+    try {
+      return Boolean(localStorage.getItem('rg_remembered_admin_email'));
+    } catch {
+      return false;
+    }
+  });
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -257,6 +270,12 @@ export function AdminLoginPage() {
     if (normalizedEmail === "rasakanu2008@gmail.com" && password === "Orezi@!!Raj") {
       setLoading(true);
       try {
+        if (rememberEmail) {
+          localStorage.setItem('rg_remembered_admin_email', normalizedEmail);
+        } else {
+          localStorage.removeItem('rg_remembered_admin_email');
+        }
+
         await loginAdmin(email, password);
         addToast('Welcome back, Administrator.');
         navigate('/admin');
@@ -318,7 +337,7 @@ export function AdminLoginPage() {
               <input 
                 type="email"
                 className="form-control input-with-icon"
-                placeholder="rasakanu2008@gmail.com"
+                placeholder="admin@domain.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
@@ -326,7 +345,7 @@ export function AdminLoginPage() {
             </div>
           </div>
 
-          <div className="form-group" style={{ textAlign: 'left', marginBottom: '1.75rem' }}>
+          <div className="form-group" style={{ textAlign: 'left', marginBottom: '1.25rem' }}>
             <label className="form-label-custom">Security Password</label>
             <div className="password-field-wrapper">
               <span className="input-icon">
@@ -339,7 +358,7 @@ export function AdminLoginPage() {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 required
-                autoFocus
+                autoFocus={!email}
               />
               <button
                 type="button"
@@ -351,6 +370,24 @@ export function AdminLoginPage() {
                 {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
               </button>
             </div>
+          </div>
+
+          {/* Remember Admin ID / Email Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.75rem' }}>
+            <label style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '0.82rem', color: '#a1a1aa', userSelect: 'none' }}>
+              <input 
+                type="checkbox"
+                checked={rememberEmail}
+                onChange={(e) => setRememberEmail(e.target.checked)}
+                style={{
+                  accentColor: 'var(--rg-gold-400, #d4af37)',
+                  width: '16px',
+                  height: '16px',
+                  cursor: 'pointer'
+                }}
+              />
+              <span>Remember Admin ID / Email</span>
+            </label>
           </div>
 
           <button 

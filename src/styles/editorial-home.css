@@ -763,3 +763,42 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  .hero-floating-bottom-left {
+    bottom: 1.5rem;
+    left: 1rem;
+    right: 1rem;
+    gap: 0.75rem;
+  }
+  .btn-hero-solid {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 1.8px;
+  }
+  .btn-hero-underlined {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+  }
+  .catalog-coming-soon-banner {
+    padding: 3rem 1.25rem;
+    margin: 1rem 0 2.5rem;
+  }
+  .coming-soon-title {
+    font-size: 1.45rem;
+  }
+  .coming-soon-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.75rem;
+  }
+  .coming-soon-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .coming-soon-actions a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
+

@@ -17,7 +17,9 @@ import {
   FiUser,
   FiCalendar,
   FiClock,
-  FiUsers
+  FiUsers,
+  FiMenu,
+  FiX
 } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import '../styles/admin.css';
@@ -27,6 +29,9 @@ import { subscribeToVisitorCount, getCurrentVisitorCount } from '../services/pre
 export default function AdminLayout() {
   const { logout, currentUser } = useAuth();
   const navigate = useNavigate();
+
+  // Mobile navigation drawer state
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   // Live Telemetry: Clock, Date, and Real-Time Active Visitors
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -69,43 +74,88 @@ export default function AdminLayout() {
 
   return (
     <div className="admin-layout-root">
-      {/* Sidebar */}
-      <aside className="admin-sidebar">
+      {/* Mobile Drawer Backdrop */}
+      {isMobileNavOpen && (
+        <div 
+          className="admin-mobile-backdrop" 
+          onClick={() => setIsMobileNavOpen(false)} 
+        />
+      )}
+
+      {/* Sidebar (Responsive Off-Canvas on Mobile/Tablet) */}
+      <aside className={`admin-sidebar ${isMobileNavOpen ? 'mobile-open' : ''}`}>
         <div className="admin-sidebar-header">
-          <div className="admin-brand-title">R & G</div>
-          <span style={{ fontSize: '0.72rem', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--rg-gray-400)' }}>
-            Admin Master Suite
-          </span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div className="admin-brand-title">R & G</div>
+              <span style={{ fontSize: '0.72rem', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--rg-gray-400)' }}>
+                Admin Master Suite
+              </span>
+            </div>
+            {/* Close button inside mobile drawer */}
+            <button 
+              className="admin-mobile-close-btn"
+              onClick={() => setIsMobileNavOpen(false)}
+              aria-label="Close navigation menu"
+            >
+              <FiX size={20} />
+            </button>
+          </div>
         </div>
 
         <ul className="admin-nav-menu">
           <li>
-            <NavLink to="/admin" end className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink 
+              to="/admin" 
+              end 
+              onClick={() => setIsMobileNavOpen(false)}
+              className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
+            >
               <FiGrid /> Dashboard Overview
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/products" className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink 
+              to="/admin/products" 
+              onClick={() => setIsMobileNavOpen(false)}
+              className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
+            >
               <FiBox /> Manage Goods & Photos
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/orders" className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink 
+              to="/admin/orders" 
+              onClick={() => setIsMobileNavOpen(false)}
+              className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
+            >
               <FiShoppingBag /> Client Orders & Dispatch
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/categories" className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink 
+              to="/admin/categories" 
+              onClick={() => setIsMobileNavOpen(false)}
+              className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
+            >
               <FiTag /> Categories & Lookbooks
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/coupons" className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink 
+              to="/admin/coupons" 
+              onClick={() => setIsMobileNavOpen(false)}
+              className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
+            >
               <FiPercent /> Promo & Coupons
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/settings" className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink 
+              to="/admin/settings" 
+              onClick={() => setIsMobileNavOpen(false)}
+              className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
+            >
               <FiSettings /> Store Settings & Contact
             </NavLink>
           </li>
@@ -117,7 +167,7 @@ export default function AdminLayout() {
           </div>
           <button 
             onClick={handleLogout}
-            style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--rg-error)', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
+            style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--rg-error)', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
           >
             <FiLogOut /> Sign Out
           </button>
@@ -127,7 +177,16 @@ export default function AdminLayout() {
       {/* Main Panel */}
       <div className="admin-main-wrapper">
         <header className="admin-top-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+            {/* Mobile Hamburger Button */}
+            <button 
+              className="admin-mobile-menu-toggle"
+              onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+              aria-label="Toggle navigation"
+            >
+              <FiMenu size={20} />
+            </button>
+
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--rg-gray-400)' }}>
               <span>Portal</span> / <strong style={{ color: '#fff' }}>R&G Collections Management</strong>
             </div>

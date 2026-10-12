@@ -185,3 +185,20 @@
   border-color: #09090b;
 }
 
+@media (max-width: 480px) {
+  .checkout-page-layout {
+    padding: 1.5rem 0 4rem;
+  }
+  .checkout-form-card {
+    padding: 1.25rem 1rem;
+  }
+  .checkout-steps-tracker {
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+  }
+  .form-text-input {
+    font-size: 16px !important;
+  }
+}
+

@@ -7,6 +7,10 @@ import { FiChevronDown, FiChevronUp, FiSearch } from 'react-icons/fi';
 import { RG_FAQS } from '../data/sampleData.js';
 
 export default function FAQPage() {
+  React.useEffect(() => {
+    document.title = "Atelier Guidelines & FAQ | R&G Collections";
+  }, []);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [openIdx, setOpenIdx] = useState(0);
 

@@ -1,0 +1,74 @@
+# R&G Collections - Robots Configuration
+# Optimized for Search Engines (Google, Bing, Yahoo, DuckDuckGo) & Generative AI Crawlers (OpenAI, Perplexity, Claude, Gemini, Apple)
+
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /product/
+Allow: /collections
+Allow: /about
+Allow: /contact
+Allow: /faq
+Allow: /llms.txt
+Disallow: /admin
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /order-confirmation/
+
+# OpenAI SearchGPT & ChatGPT
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin
+
+# Perplexity AI Engine
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+
+# Anthropic Claude Engine
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin
+
+# Google Search & Gemini AI
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+Disallow: /admin
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin
+
+# Meta AI & LLaMA Search
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /admin
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+Disallow: /admin
+
+Sitemap: https://r-g-three.vercel.app/sitemap.xml

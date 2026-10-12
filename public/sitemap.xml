@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://r-g-three.vercel.app/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://r-g-three.vercel.app/hero-boutique.jpg</image:loc>
+      <image:title>R&amp;G Collections Luxury Boutique</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://r-g-three.vercel.app/hero-outfit.jpg</image:loc>
+      <image:title>R&amp;G Collections Signature Capsule Flat-Lay</image:title>
+    </image:image>
+  </url>
+
+  <!-- Shop & Catalog -->
+  <url>
+    <loc>https://r-g-three.vercel.app/shop</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Wardrobe Lookbooks & Collections -->
+  <url>
+    <loc>https://r-g-three.vercel.app/collections</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Atelier -->
+  <url>
+    <loc>https://r-g-three.vercel.app/about</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact & WhatsApp Concierge -->
+  <url>
+    <loc>https://r-g-three.vercel.app/contact</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQ & Ordering Guidelines -->
+  <url>
+    <loc>https://r-g-three.vercel.app/faq</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

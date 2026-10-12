@@ -38,9 +38,12 @@ export default function ProductDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (product) {
+      document.title = `${product.name} — Luxury Menswear | R&G Collections`;
       setActiveImageIdx(0);
       setSelectedSize(Array.isArray(product.sizes) && product.sizes.length > 0 ? product.sizes[0] : 'Standard');
       setSelectedColor(Array.isArray(product.swatches) && product.swatches.length > 0 ? product.swatches[0] : '#000000');
+    } else {
+      document.title = "Atelier Good | R&G Collections";
     }
   }, [slug, product]);
 

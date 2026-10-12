@@ -25,6 +25,10 @@ export default function ShopPage() {
   const [priceSort, setPriceSort] = useState('featured');
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
+  React.useEffect(() => {
+    document.title = "Shop Menswear Catalog | R&G Collections";
+  }, []);
+
   // Filter products
   const filteredProducts = useMemo(() => {
     return products.filter(p => {

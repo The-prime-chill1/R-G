@@ -9,6 +9,10 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { RG_LOOKBOOKS } from '../data/sampleData.js';
 
 export default function CollectionsPage() {
+  React.useEffect(() => {
+    document.title = "Wardrobe Edits & Lookbooks | R&G Collections";
+  }, []);
+
   const formatNaira = (amount) => {
     return 'NGN ' + Number(amount).toLocaleString('en-NG');
   };

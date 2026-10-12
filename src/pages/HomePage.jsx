@@ -30,6 +30,10 @@ export default function HomePage() {
   const { products, lookbooks } = useShop();
   const [selectedQuickView, setSelectedQuickView] = useState(null);
 
+  React.useEffect(() => {
+    document.title = "R&G — Modern Luxury Menswear & Bespoke Sartorial Fashion";
+  }, []);
+
   const bestOfProducts = products.slice(0, 4);
 
   const formatNaira = (amount) => {

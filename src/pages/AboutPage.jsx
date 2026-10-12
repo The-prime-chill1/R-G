@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 import { FiArrowRight, FiShield, FiScissors, FiAward } from 'react-icons/fi';
 
 export default function AboutPage() {
+  React.useEffect(() => {
+    document.title = "The Atelier & Sartorial Heritage | R&G Collections";
+  }, []);
+
   return (
     <div>
       {/* Hero */}

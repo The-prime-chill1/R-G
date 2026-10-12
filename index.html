@@ -1,26 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
+  <!-- Primary Search Engine SEO -->
   <title>R&amp;G — Modern Luxury Menswear &amp; Bespoke Sartorial Fashion</title>
-  <meta name="description" content="R&amp;G Collections: Contemporary luxury menswear, handcrafted Italian footwear, and master-crafted Nigerian ceremonial native wear. Express same-day dispatch across Lagos, Akure, and Achievers University." />
+  <meta name="title" content="R&amp;G — Modern Luxury Menswear &amp; Bespoke Sartorial Fashion" />
+  <meta name="description" content="Contemporary luxury menswear, handcrafted Italian footwear, and master-crafted Nigerian ceremonial native wear. Defined by style, designed for you. Express same-day delivery in Lagos, Akure, and nationwide." />
+  <meta name="keywords" content="R&amp;G Collections, luxury menswear, bespoke suits, senator wear, nigerian native wear, handcrafted footwear, bespoke tailoring lagos, luxury kaftan, designer menswear nigeria, contemporary menswear, bespoke fashion house, men sartorial style" />
+  <meta name="author" content="R&amp;G Collections Atelier" />
+  <meta name="publisher" content="R&amp;G Collections" />
+  <meta name="application-name" content="R&amp;G Collections" />
   <meta name="theme-color" content="#09090b" />
-  
-  <!-- Open Graph / Meta -->
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Canonical URL & Indexation Directives -->
+  <link rel="canonical" href="https://r-g-three.vercel.app/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+  <!-- AI Engine Knowledge Endpoints -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="author" type="text/plain" href="/llms.txt" />
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp Rich Previews -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="R&amp;G — Modern Luxury Menswear" />
-  <meta property="og:description" content="Defined by style. Designed for you. Modern essentials, bespoke Senator suits, and handmade Italian leather footwear." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:site_name" content="R&amp;G Collections" />
+  <meta property="og:url" content="https://r-g-three.vercel.app/" />
+  <meta property="og:title" content="R&amp;G — Modern Luxury Menswear &amp; Bespoke Sartorial Fashion" />
+  <meta property="og:description" content="Contemporary luxury menswear, handcrafted Italian footwear, and master-crafted Nigerian ceremonial native wear. Defined by style, designed for you." />
+  <meta property="og:image" content="https://r-g-three.vercel.app/hero-boutique.jpg" />
+  <meta property="og:image:secure_url" content="https://r-g-three.vercel.app/hero-boutique.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:alt" content="R&amp;G Collections Atelier Showroom &amp; Menswear" />
+  <meta property="og:locale" content="en_US" />
 
-  <!-- Favicon -->
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@RGCollections" />
+  <meta name="twitter:creator" content="@RGCollections" />
+  <meta name="twitter:url" content="https://r-g-three.vercel.app/" />
+  <meta name="twitter:title" content="R&amp;G — Modern Luxury Menswear &amp; Bespoke Sartorial Fashion" />
+  <meta name="twitter:description" content="Contemporary luxury menswear, handcrafted Italian footwear, and master-crafted Nigerian ceremonial native wear. Defined by style, designed for you." />
+  <meta name="twitter:image" content="https://r-g-three.vercel.app/hero-boutique.jpg" />
+  <meta name="twitter:image:alt" content="R&amp;G Collections Luxury Boutique" />
+
+  <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23cfa135'><path d='M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z'/></svg>" />
+  <link rel="apple-touch-icon" href="/hero-boutique.jpg" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts Preconnect & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data Schema for Google & Generative AI Crawlers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ClothingStore",
+        "@id": "https://r-g-three.vercel.app/#store",
+        "name": "R & G Collections",
+        "alternateName": ["R&G", "R and G Collections", "R&G Atelier", "R&G Luxury Menswear"],
+        "url": "https://r-g-three.vercel.app",
+        "logo": "https://r-g-three.vercel.app/hero-boutique.jpg",
+        "image": [
+          "https://r-g-three.vercel.app/hero-boutique.jpg",
+          "https://r-g-three.vercel.app/hero-outfit.jpg"
+        ],
+        "description": "Contemporary luxury menswear, handcrafted Italian footwear, and master-crafted Nigerian ceremonial native wear. Defined by style, designed for you.",
+        "telephone": "+2349045231629",
+        "email": "rasakanu2008@gmail.com",
+        "priceRange": "₦₦₦",
+        "currenciesAccepted": "NGN, USD, GBP, EUR",
+        "paymentAccepted": "Cash, Credit Card, Debit Card, Bank Transfer, Paystack",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "NG",
+          "addressRegion": "Lagos & Ondo State",
+          "addressLocality": "Lagos"
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "NG",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 7,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+2349045231629",
+            "contactType": "customer service",
+            "areaServed": ["NG", "GB", "US"],
+            "availableLanguage": ["English", "Yoruba"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+2347060610938",
+            "contactType": "sales concierge",
+            "areaServed": "NG"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://r-g-three.vercel.app/#website",
+        "url": "https://r-g-three.vercel.app",
+        "name": "R & G Collections",
+        "description": "Modern Luxury Menswear & Bespoke Sartorial Fashion",
+        "publisher": {
+          "@id": "https://r-g-three.vercel.app/#store"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://r-g-three.vercel.app/shop?search={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>

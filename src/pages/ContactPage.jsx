@@ -17,6 +17,10 @@ import { RG_LOCATIONS } from '../data/sampleData.js';
 import { useToast } from '../context/ToastContext.jsx';
 
 export default function ContactPage() {
+  React.useEffect(() => {
+    document.title = "Private Concierge & Contact | R&G Collections";
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
